@@ -1,0 +1,75 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log
+.pnpm-debug.log
+yarn.lock
+
+# macOS system files
+.DS_Store
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# React Native build files
+android/app/build/
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/src/debug/
+android/app/src/release/
+android/app/src/main/assets/
+android/app/src/main/res/raw/
+android/app/src/main/res/drawable-*/
+android/app/.cxx
+
+ios/Pods/
+ios/build/
+ios/.DS_Store
+ios/.generated/
+ios/DerivedData/
+ios/.expo/
+ios/*.xcodeproj/project.xcworkspace/
+
+# Expo-specific files
+.expo/
+.expo-shared/
+
+# React Native cache
+metro-cache/
+react-native-packager-cache-*/
+
+# Logs & Debugging
+*.log
+debug.log
+*.lock
+*.log.*
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# Linting
+.eslintcache
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Firebase credentials
+google-services.json
+GoogleService-Info.plist
+
+# Coverage reports
+coverage/
+.nyc_output/
