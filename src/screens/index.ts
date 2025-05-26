@@ -7,6 +7,6 @@ export { default as Offers } from './Offers';
 export { default as Stores } from './Stores';
 export { default as Tracker } from './Tracker';
 export { default as Notifications } from './Notifications';
-export { default as AboutDominos } from './AboutDominos';
 export { default as Login } from './Login';
 export { default as OrderConfirmation } from './OrderConfirmation';
+export { default as OrderDetails } from './OrderDetails';

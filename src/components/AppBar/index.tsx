@@ -3,7 +3,7 @@ import { Icons, Images } from '@src/assets';
 import { screenWidth } from '@src/utils';
 import { StatusBar, StyleSheet } from 'react-native';
 import { Appbar, useTheme } from 'react-native-paper';
-import { Screens } from '../../navigation/appNavigation';
+import { Screens } from '../../navigation/screens';
 import { AppImage } from '../AppImage';
 import { Text } from '../Text';
 

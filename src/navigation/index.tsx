@@ -22,8 +22,10 @@ import { set_localize_content } from '@src/utils/helper.ts';
 import { Image } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import translations from '../translations/index.tsx';
-import CustomDrawerContent from './CustomDrawerContent';
-import { Screens } from './appNavigation.ts';
+import { Screens } from './screens.ts';
+import { useSelector } from 'react-redux';
+import { RootState } from '@src/store/index.tsx';
+import CustomDrawerContent from './CustomDrawerContent.tsx';
 
 // Define navigation types
 export type RootStackParamList = {
@@ -180,6 +182,7 @@ const BottomTabs = () => {
 // Drawer navigator
 const DrawerNavigator = () => {
   const theme = useTheme();
+  const { language } = useSelector((state: RootState) => state.language);
 
   return (
     <Drawer.Navigator
@@ -212,7 +215,7 @@ const DrawerNavigator = () => {
           key={index}
           name={item.screen as keyof DrawerParamList}
           options={{
-            title: set_localize_content(item.label, 'enMobile'),
+            title: set_localize_content(item.label, language),
             drawerIcon: ({ color, size }: any) => (
               <Image
                 source={item.icon}

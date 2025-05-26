@@ -6,6 +6,11 @@ export enum StorageKeys {
   CART = 'CART',
   SERVICE_METHOD = 'SERVICE_METHOD',
   TOKEN = 'TOKEN',
+  USER = 'USER',
+  USER_ADDRESS = 'USER_ADDRESS',
+  STORE_CODE = 'STORE_CODE',
+  BIRTHDAY_COUPON = 'BIRTHDAY_COUPON',
+  PROMO_CODE = 'PROMO_CODE'
 }
 
 export type STORAGES_KEY = StorageKeys;

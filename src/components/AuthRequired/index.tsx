@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { Screens } from '../../navigation/appNavigation';
+import { Screens } from '../../navigation/screens';
 import { storage } from '../../storage';
 import { StorageKeys } from '@src/constants';
 

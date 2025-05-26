@@ -24,16 +24,17 @@ fs.mkdir(screenPath, { recursive: true }, (err) => {
 
   // Main Screen Component: index.tsx
   const screenComponent = `import AppBar from '@src/components/AppBar';
+  import { BaseLayout } from '@src/components/BaseLayout/BaseLayout';
   import { Text } from '@src/components/Text';
   import React from 'react';
-  import { StyleSheet, View } from 'react-native';
+  import { StyleSheet } from 'react-native';
 
 const ${fileName} = () => {
   return (
-    <View style={styles.container}>
+    <BaseLayout>
       <AppBar />
-      <Text preset="p">${fileName} Screen</Text>
-    </View>
+      <Text preset="p">OrderDetails Screen</Text>
+    </BaseLayout>
   );
 };
 

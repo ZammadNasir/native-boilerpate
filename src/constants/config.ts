@@ -4,6 +4,7 @@ import {
   PLAY_STORE_URL,
   APP_STORE_URL,
   APP_SECRET_KEY,
+  GOOGLE_MAPS_API_KEY
 } from '@env';
 
 export const AppConfig = {
@@ -12,4 +13,5 @@ export const AppConfig = {
   PLAY_STORE_URL,
   APP_STORE_URL,
   APP_SECRET_KEY,
+  GOOGLE_MAPS_API_KEY
 };

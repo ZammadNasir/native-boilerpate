@@ -7,9 +7,8 @@ import { Icons, Images } from '@src/assets';
 import { AppImage } from '@src/components/AppImage';
 import { Button } from '@src/components/Button';
 import { Text } from '@src/components/Text';
-import { isIOS } from '@src/constants';
 import translations from '@src/translations';
-import { screenHeight, set_localize_content } from '@src/utils';
+import { screenHeight, set_localize_content, ThemeColors } from '@src/utils';
 import {
   Alert,
   Image,
@@ -20,13 +19,15 @@ import {
 } from 'react-native';
 import { Badge, Divider, useTheme } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import { drawer_rows } from '.';
 import { RootState } from '../store';
-import { Screens } from './appNavigation';
+import { Screens } from './screens';
+import { isIOS } from '@src/constants/platform';
+import { drawer_rows } from '.';
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
   const theme = useTheme();
   const { user } = useSelector((state: RootState) => state.auth);
+  const { language } = useSelector((state: RootState) => state.language);
   const navigation = useNavigation() as any;
 
   const social_links = [
@@ -53,7 +54,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
     {
       img: 'en',
       label: 'EN',
-      content: 'enMobile',
+      content: language,
     },
     {
       img: 'ru',
@@ -90,12 +91,12 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             <Text style={styles.phoneNumber} preset="span">
               {set_localize_content(
                 translations.UNLOCK_NEW_FEATURES,
-                'enMobile'
+                language
               )}
             </Text>
             <View style={{ alignItems: 'center', marginTop: 4 }}>
               <Button
-                title={set_localize_content(translations.LOGIN, 'enMobile')}
+                title={set_localize_content(translations.LOGIN, language)}
                 buttonContainerStyle={{ width: 100 }}
                 titleStyle={{ fontSize: 18 }}
                 onPress={() => {
@@ -138,7 +139,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
               />
             </View>
             <Text style={styles.navText}>
-              {set_localize_content(item.label, 'enMobile')}
+              {set_localize_content(item.label, language)}
             </Text>
           </TouchableOpacity>
         ))}
@@ -149,7 +150,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             <TouchableOpacity
               key={index}
               style={{ marginLeft: index === 0 ? 0 : 10 }}>
-              <Text preset="p" style={{ color: '#616161' }}>
+              <Text preset="p" style={{ color: ThemeColors.GREY }}>
                 {item.label}
               </Text>
             </TouchableOpacity>
@@ -178,7 +179,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
                   Alert.alert(
                     set_localize_content(
                       translations.LINK_NOT_AVAILABLE,
-                      'enMobile'
+                      language
                     )
                   );
                 });
@@ -190,7 +191,14 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             </TouchableOpacity>
           ))}
         </View>
-        <TouchableOpacity onPress={() => Linking.openURL('tel://*6600')}>
+        <TouchableOpacity
+          onPress={() => {
+            Linking.openURL('tel://*6600').catch(() => {
+              Alert.alert(
+                set_localize_content(translations.LINK_NOT_AVAILABLE, language)
+              );
+            });
+          }}>
           <AppImage
             source={Images.CALL_IMAGE}
             style={{ height: 35, width: 70 }}
@@ -265,7 +273,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    backgroundColor: '#d2112c',
+    backgroundColor: ThemeColors.DOMINOSred,
     fontSize: 10,
     zIndex: 99,
   },
@@ -301,7 +309,7 @@ const styles = StyleSheet.create({
   navText: {
     marginLeft: 18,
     fontSize: 14,
-    color: '#616161',
+    color: ThemeColors.GREY,
   },
   divider: {
     marginVertical: 4,

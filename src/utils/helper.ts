@@ -1,6 +1,7 @@
 import NetInfo from '@react-native-community/netinfo';
 
 import { scaledSize } from './dimensions';
+import { Language } from '@src/types';
 
 export const isNetworkConnected = async () => {
   const state = await NetInfo.refresh();
@@ -18,7 +19,7 @@ export const logger = (...args: any) => {
   }
 };
 
-export const set_localize_content = (obj: any, language: string) => {
+export const set_localize_content = (obj: any, language: Language) => {
   return obj?.[language];
 };
 
@@ -47,3 +48,17 @@ export function boxShadow(
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve as () => void, ms));
 }
+
+export const getTrimmedOrderNumber = (orderNumber: any): string => {
+  try {
+    const orderNumberLength = 16;
+    if ((`${orderNumber}` || '').length > 8) {
+      return `${orderNumber}`.substring(8, orderNumberLength);
+    } else {
+      return `${orderNumber}`;
+    }
+  } catch (error) {
+    console.error('Error in getTrimmedOrderNumber:', error);
+    return '';
+  }
+};

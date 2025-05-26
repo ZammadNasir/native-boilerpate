@@ -1,7 +1,7 @@
 import { View, StyleSheet, ScrollView } from "react-native"
 import { useRoute, type RouteProp } from "@react-navigation/native"
 import { Card, Title, Paragraph, Divider, List, useTheme } from "react-native-paper"
-import {  Screen } from "../navigation/appNavigation"
+import {  Screen } from "../navigation/screens"
 import { RootStackParamList } from "@src/navigation"
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, Screen.DETAILS>

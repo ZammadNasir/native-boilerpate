@@ -1,42 +1,47 @@
-export type Language = "en" | "ge";
+export type Language = 'en' | 'az' | 'ru';
 
-export type ServiceMethods = "delievry" | "takeaway" | "dinein";
+export type ServiceMethods = 'delievry' | 'takeaway' | 'dinein';
 
-export type PaymentMethods = "card" | "cash" | "online";
+export type PaymentMethods = 'card' | 'cash' | 'online';
 
 export type Categories =
-  | "offers"
-  | "pizza"
-  | "bread"
-  | "chicken"
-  | "sandwich"
-  | "wrap"
-  | "loadpotato"
-  | "dessert"
-  | "drinks"
-  | "sauce";
+  | 'offers'
+  | 'pizza'
+  | 'bread'
+  | 'chicken'
+  | 'salad'
+  | 'drinks'
+  | 'dips'
+  | 'dessert';
 
 export type SubCategories =
-  | "all"
-  | "favorite"
-  | "special"
-  | "premium"
-  | "half_half"
-  | "makeyourown"
-  | "chickenlovers"
-  | "all_drinks"
-  | "softdrink"
-  | "fruitjuice"
-  | "water";
+  | 'all'
+  | 'favorite'
+  | 'special'
+  | 'premium'
+  | 'half_half'
+  | 'makeyourown'
+  | 'chickenlovers'
+  | 'all_drinks'
+  | 'softdrink'
+  | 'fruitjuice'
+  | 'water';
 
 export type Sizes =
-  | "small"
-  | "medium"
-  | "large"
-  | "250ml"
-  | "330ml"
-  | "500ml"
-  | "1l";
+  | 'small'
+  | 'medium'
+  | 'large'
+  | '250ml'
+  | '330ml'
+  | '500ml'
+  | '1l';
+
+export type ToppingQuantityCodes =
+  | 'light'
+  | 'standard'
+  | 'extra'
+  | 'double'
+  | 'triple';
 
 export type ItemPaymentMethod = Record<PaymentMethods, boolean>;
 
@@ -69,7 +74,7 @@ export type Address = {
   id: number | string;
   is_active: boolean;
   is_default: boolean;
-  location: { type: "Point"; coordinates: number[][] };
+  location: { type: 'Point'; coordinates: number[][] };
   resource_id: string | number;
   state: string | null;
   street_name: string | null;
@@ -79,7 +84,8 @@ export type Address = {
 
 export type Name = {
   en: string;
-  ge: string;
+  ru: string;
+  az: string;
 };
 
 export type User = {
@@ -109,7 +115,8 @@ export type StoreDetails = {
   store_type: string;
   store_name: {
     en: string;
-    ge: string;
+    az: string;
+    ru: string;
   };
   store_desc: Record<string, string>;
   store_open_at: string;
@@ -130,12 +137,13 @@ export type StoreDetails = {
   redirect_reason: string | null;
   other_redirect_reason: string | null;
   polygons: {
-    type: "Polygon";
+    type: 'Polygon';
     coordinates: number[][][];
   };
   address: {
-    ge: string;
     en: string;
+    az: string;
+    ru: string;
   };
   delivery_type: string[];
   online_options: string[];
@@ -189,11 +197,12 @@ export type Edge = {
 
 export type ContentName = {
   en: string;
-  ge: string;
+  az: string;
+  ru: string;
 };
 
 export type Topping = {
-  topping_size: string;
+  topping_size: ToppingQuantityCodes;
   topping_code: string;
   topping_price: number;
   is_standard: boolean;
@@ -223,10 +232,12 @@ export type Product = {
   edges?: Edge[];
   toppings?: Topping[];
   en_content: Partial<Content>;
-  ge_content: Partial<Content>;
+  az_content: Partial<Content>;
+  ru_content: Partial<Content>;
   product_name: {
     en: string;
-    ge: string;
+    az: string;
+    ru: string;
   };
 };
 
@@ -257,7 +268,6 @@ export type CartItem = {
   product_actual_price: number;
   price: number;
   related_promo_product?: boolean | null | undefined;
-  en_content: Content;
   product_price: number | string;
   product_discount: number | undefined;
   discount_applied: boolean;
@@ -265,7 +275,9 @@ export type CartItem = {
   coupon_type?: string | null | undefined;
   is_discount_available: boolean;
   product_discount_type: string | undefined;
-  ge_content: Content;
+  en_content: Content;
+  az_content: Content;
+  ru_content: Content;
   original_price?: string;
   allowed_items?: any;
   promo_applied?: boolean | undefined;

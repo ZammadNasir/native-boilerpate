@@ -1,41 +1,35 @@
 import { ColorSchemeName } from 'react-native';
 
+export const ThemeColors = {
+  ORANGE: '#fa7816',
+  BLUE: '#2c2d5b',
+  BACKGROUND: '#ebebeb',
+  WHITE: '#ffffff',
+  BORDER: 'lightgray',
+  DOMINOSred: '#D2112C',
+  DOMINOSblue: '#0078AC',
+  GREEN: '#629847',
+  GREY: '#616161',
+  LIGHTGREY: '#d0d0d0',
+  YELLOW: '#EEBB00',
+  WHEAT: '#fefefe',
+  EXTRALIGHTGRAY: '#f2f2f2',
+  EXTRALIGHTGRAY_2: '#f5f5f5',
+  BLACK: '#000',
+};
+
 export const color = {
   dark: {
     backgroundColor: '#212121', // light grey
-    primaryColor: '#0a84ff', // bright blue
-    secondaryColor: '#dcdcdc', // dark grey
-    textColor: '#f8f9fa', // off-white
+    primaryColor: ThemeColors.DOMINOSblue, // bright blue
+    secondaryColor: ThemeColors.GREY, // dark grey
+    textColor: '#fff', // off-white
   },
   light: {
     backgroundColor: '#f8f9fa', // grey
-    primaryColor: '#000080', // blue
-    secondaryColor: '#6c757d', // off-white
-    textColor: '#343a40', // dark grey
-  },
-  theme1: {
-    backgroundColor: '#f8f8f8', // light pink
-    primaryColor: '#ff5a5f', // red
-    secondaryColor: '#f2c9c9', // off-white
-    textColor: '#424242', // dark grey
-  },
-  theme2: {
-    backgroundColor: '#e5e5e5', // wheat
-    primaryColor: '#000080', // navy blue
-    secondaryColor: '#f5deb3', // light grey
-    textColor: '#333333', // dark grey
-  },
-  theme3: {
-    backgroundColor: '#f0f0f0', // light yellow
-    primaryColor: '#800000', // maroon
-    secondaryColor: '#ffffe0', // light grey
-    textColor: '#2f4f4f', // dark slate grey
-  },
-  theme4: {
-    backgroundColor: '#f5f5f5', // misty rose
-    primaryColor: '#663399', // rebecca purple
-    secondaryColor: '#ffe4e1', // light grey
-    textColor: '#333333', // dark grey
+    primaryColor: ThemeColors.DOMINOSblue, // blue
+    secondaryColor: '#fff', // off-white
+    textColor: ThemeColors.GREY, // dark grey
   },
 };
 

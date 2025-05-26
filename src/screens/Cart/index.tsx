@@ -3,22 +3,24 @@ import AppBar from '@src/components/AppBar';
 import { BaseLayout } from '@src/components/BaseLayout/BaseLayout';
 import { Button } from '@src/components/Button';
 import { Text } from '@src/components/Text';
+import { RootState } from '@src/store';
 import translations from '@src/translations';
 import { scaleHeight, set_localize_content } from '@src/utils';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { useTheme } from 'react-native-paper';
-import { Screens } from '../../navigation/appNavigation';
+import { useSelector } from 'react-redux';
+import { Screens } from '../../navigation/screens';
 
 const Cart = () => {
-  const theme = useTheme();
   const navigation = useNavigation() as any;
+  const { language } = useSelector((state: RootState) => state.language);
+
   return (
     <BaseLayout>
       <AppBar
         showBackButton={true}
         hideCartIcon={true}
-        title={set_localize_content(translations.CART_ITEMS, 'enMobile')}
+        title={set_localize_content(translations.CART_ITEMS, language)}
       />
       <Text preset="p">Cart Screen</Text>
       <Button

@@ -6,11 +6,22 @@ import {
   TextStyle,
 } from 'react-native';
 
+import { isDarkMode } from '@src/constants/appearence';
 import { scaledSize } from '@src/utils';
-import { useTheme } from '../../theme/ThemeContext';
 
 export enum Fonts {
   Poppins = 'Poppins',
+  BebasBold = 'BebasNeue-Bold',
+  BebasBook = 'BebasNeue-Book',
+  BebasLight = 'BebasNeue-Light',
+  BebasThin = 'BebasNeue-Thin',
+  SansBold = 'OpenSans-Bold',
+  SansLight = 'OpenSans-Light',
+  SansRegular = 'OpenSans-Regular',
+  SansSemiBold = 'OpenSans-Semi-Bold',
+  PizzaPressFill = 'PizzaPress-Fill',
+  PizzaPressRegular = 'PizzaPress-Regular',
+  PizzaPressShadow = 'PizzaPress-Shadow',
 }
 
 const BASE_TEXT: TextStyle = {
@@ -21,23 +32,19 @@ export const presets = {
   default: BASE_TEXT,
   font400: {
     ...BASE_TEXT,
-    //add your font normal for weight 400
-    fontFamily: Fonts.Poppins,
+    fontFamily: Fonts.PizzaPressRegular,
   } as TextStyle,
   font500: {
     ...BASE_TEXT,
-    //add your font medium for weight 500
-    fontFamily: Fonts.Poppins,
+    fontFamily: Fonts.PizzaPressRegular,
   } as TextStyle,
   font600: {
     ...BASE_TEXT,
-    //add your font semi-bold for weight 600
-    fontFamily: Fonts.Poppins,
+    fontFamily: Fonts.PizzaPressRegular,
   } as TextStyle,
   font700: {
     ...BASE_TEXT,
-    //add your font bold for weight 700
-    fontFamily: Fonts.Poppins,
+    fontFamily: Fonts.PizzaPressRegular,
   } as TextStyle,
   span: {
     ...BASE_TEXT,
@@ -123,14 +130,13 @@ export const Text = ({ children, ...props }: TextProps) => {
     ...rest
   } = props;
 
-  const { isDarkMode } = useTheme() as any;
   return (
     <RNText
       {...rest}
       style={[
         presets[preset] as TextProps,
         {
-          color: color ? color : isDarkMode ? '#fff' : '#000',
+          color: isDarkMode ? '#fff' : color ? color : '#000',
           textAlign: textAlign,
         },
         styleOverride,

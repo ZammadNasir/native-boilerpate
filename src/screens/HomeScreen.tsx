@@ -4,7 +4,7 @@ import AppBar from '@src/components/AppBar';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Button, Card, Paragraph, Title, useTheme } from 'react-native-paper';
 import type { RootStackParamList } from '../navigation';
-import { Screens } from '../navigation/appNavigation';
+import { Screens } from '../navigation/screens';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
